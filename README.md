@@ -2,14 +2,14 @@
 
 This repository explores the various memory types available in LangChain for building stateful and contextual conversational applications. Each memory type is designed to handle different scenarios, from simple chat history to complex, long-running conversations.
 
----
+----
 
 ### **ConversationalBufferMemory**
 This is the simplest memory type, storing the complete conversation history in a buffer. It allows for easy access and extraction of past messages.
 * **Description:** Stores all messages and can be extracted later using variables.
 * **Example:** `conversation.predict(input="Hi, my name is Andrew")`
 
----
+----
 ### **ConversationBufferWindowMemory**
 This memory type is useful for managing long conversations by keeping a limited history.
 * **Description:** Keeps a list of recent conversation interactions and extracts only the last **$k$** conversations from the list.
