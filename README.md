@@ -63,46 +63,62 @@ If nothing input satisfies the given prompt then it use llm and provide the outp
 * Takes all retrieved documents.
 * “Stuffs” them directly into the prompt with your question.
 * Sends the whole thing to the LLM at once.
+
 **Pros:**
 Simple, fast, often works well if docs are short.
+
 **Cons:**
 * Breaks if documents are too long (token limit).
 * LLM might get distracted by irrelevant info.
+
 Analogy: Like dumping all your notes on a desk and asking GPT, “Answer using everything here.”
+
 ### **Map-Reduce**
 **How it works:**
 Map step: For each retrieved document, the LLM generates a partial answer.
 Reduce step: Another LLM call combines those partial answers into a final answer.
+
 **Pros:**
 * Scales to large document sets (since each doc is handled separately).
 * Prevents token overflow.
+
 **Cons:**
 * More LLM calls → slower & costlier.
 * Quality depends on how well the “reduce” merges answers.
+
 Analogy: Each student reads one chapter and writes a summary → teacher combines all summaries into one essay.
+
 ### **Refine**
 **How it works:**
 Starts with the first document → generates an initial answer.
 Then, for each subsequent document, the LLM updates/refines the answer with new information.
+
 **Pros:**
 * Produces high-quality answers that evolve as more docs are read.
 * Works well if order of docs makes sense.
+
 **Cons:**
 * If an early doc misleads, later ones may not fully “fix” it.
 * Sequential → can be slower.
+
 Analogy: Writing an essay draft, then revising it as you read more sources.
+
 ### **Map-Rerank**
 **How it works:**
 For each document, the LLM produces (answer, score) where the score reflects confidence.
 The system picks the best answer based on scores.
+
 **Pros:**
 * Good when you want just the single most relevant doc answer.
 * Helps avoid “hallucinations” from irrelevant docs.
+
 **Cons:**
 Discards potentially useful information from other docs.
+
 Analogy: Each student answers a question and rates their confidence → you keep the best-scoring answer.
+
 **👉 In practice:**
-Stuff is great for toy projects and small CSVs (like your clothing catalog).
-Map-Reduce is used when you have hundreds/thousands of long documents.
-Refine is good for research-style tasks where answers get better with context.
-Map-Rerank is best for fact-based QnA (e.g., legal doc lookup, FAQ search).
+* Stuff is great for toy projects and small CSVs (like your clothing catalog).
+* Map-Reduce is used when you have hundreds/thousands of long documents.
+* Refine is good for research-style tasks where answers get better with context.
+* Map-Rerank is best for fact-based QnA (e.g., legal doc lookup, FAQ search).
