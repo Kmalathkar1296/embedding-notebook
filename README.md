@@ -34,8 +34,28 @@ This advanced memory type stores conversation history in a vector database for e
 This specialized memory uses an LLM to identify and remember specific details about entities mentioned in a conversation.
 * **Description:** Uses an LLM to remember the details about a specific entity.
 
+
 ---
 
 ### **Combining Memory Types**
 It's possible to use more than one memory type at a time to create a more robust conversational experience.
 * For example, you can combine **`ConversationalBufferMemory`** with **`Entity Memory`** to recall individual facts while maintaining recent conversation context.
+
+---
+
+# L3-Chains.ipynb
+
+### **llm chain**
+It is a basic chain which takes inputs, formats them into a prompt, sends them to the LLM, and returns the output.
+
+### **SequentialChain**
+
+**Simplesequentialchain**
+It takes single input and return single output
+
+**MultiSequentialChain**
+It takes the multiple input variables and produces the multiple output.
+
+### **RouterChain**
+Instead of always running a fixed sequence of chains (like in SequentialChain), it decides dynamically which chain to run based on the input. Similar switch/case statement but powered by LLM.
+If nothing input satisfies the given prompt then it use llm and provide the output
