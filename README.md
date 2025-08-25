@@ -1,22 +1,36 @@
-## L2-Memory.ipynb
+# L2-Memory.ipynb
 
-### ConversationalBufferMemory:
-Allows storing the message and the extract later using variables
-eg: conversation.predict(input="Hi, my name is Andrew")
+This repository explores the various memory types available in LangChain for building stateful and contextual conversational applications. Each memory type is designed to handle different scenarios, from simple chat history to complex, long-running conversations.
 
-### ConversationBufferWindowMemory
-Keeps the list of intersation of conversation over time and extract only last k conversation from the list.
+---
 
-### ConverserationTokenBufferMemory
-Keeps the buffer of recent interaction in memory and use length of tokens instead of number of last interaction.
+### **ConversationalBufferMemory**
+This is the simplest memory type, storing the complete conversation history in a buffer. It allows for easy access and extraction of past messages.
+* **Description:** Stores all messages and can be extracted later using variables.
+* **Example:** `conversation.predict(input="Hi, my name is Andrew")`
 
-### ConversationSummaryMemory
-Create summary of conversation over time.
+### **ConversationBufferWindowMemory**
+This memory type is useful for managing long conversations by keeping a limited history.
+* **Description:** Keeps a list of recent conversation interactions and extracts only the last **$k$** conversations from the list.
 
-### Vector Data Memory
-Stores conversation into vector database and retrieve the most relevant block of text
+### **ConversationTokenBufferMemory**
+Similar to `ConversationBufferWindowMemory`, but it manages the buffer based on the number of tokens, which helps control costs and manage context window sizes.
+* **Description:** Keeps a buffer of recent interactions and uses the length of tokens instead of the number of last interactions.
 
-### Entity Memory
-Using an LLM, it remembers the details about specific entity
+### **ConversationSummaryMemory**
+For very long conversations, this memory type summarizes the chat history to maintain context without exceeding token limits.
+* **Description:** Creates a summary of the conversation over time.
 
-We can use more than one more memory at a time. For example converstaion+entity -> recall individual
+### **Vector Data Memory**
+This advanced memory type stores conversation history in a vector database for efficient retrieval of the most relevant information.
+* **Description:** Stores conversations into a vector database and retrieves the most relevant block of text.
+
+### **Entity Memory**
+This specialized memory uses an LLM to identify and remember specific details about entities mentioned in a conversation.
+* **Description:** Uses an LLM to remember the details about a specific entity.
+
+---
+
+### **Combining Memory Types**
+It's possible to use more than one memory type at a time to create a more robust conversational experience.
+* For example, you can combine **`ConversationalBufferMemory`** with **`Entity Memory`** to recall individual facts while maintaining recent conversation context.
