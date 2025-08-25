@@ -49,3 +49,15 @@ It takes the multiple input variables and produces the multiple output.
 ### **RouterChain**
 Instead of always running a fixed sequence of chains (like in SequentialChain), it decides dynamically which chain to run based on the input. Similar switch/case statement but powered by LLM.
 If nothing input satisfies the given prompt then it use llm and provide the output
+
+---
+
+# L4
+
+### **Stuff**
+
+### **Map-Reduce**
+
+### **Refine**
+
+### **Map-Rerank**
