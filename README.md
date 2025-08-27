@@ -1,4 +1,4 @@
-# L2-Memory.ipynb
+## L2-Memory.ipynb
 
 This repository explores the various memory types available in LangChain for building stateful and contextual conversational applications. Each memory type is designed to handle different scenarios, from simple chat history to complex, long-running conversations.
 
@@ -33,7 +33,7 @@ It's possible to use more than one memory type at a time to create a more robust
 
 ---
 
-# L3-Chains.ipynb
+## L3-Chains.ipynb
 
 ### **llm chain**
 It is a basic chain which takes inputs, formats them into a prompt, sends them to the LLM, and returns the output.
@@ -52,7 +52,7 @@ If nothing input satisfies the given prompt then it use llm and provide the outp
 
 ---
 
-# L4-Q&A.ipynb
+## L4-Q&A.ipynb
 
 * Uses embeddings to convert the catalog rows into vectors.
 * Stores them in an in-memory vector database for semantic search.
@@ -122,3 +122,11 @@ Analogy: Each student answers a question and rates their confidence → you keep
 * Map-Reduce is used when you have hundreds/thousands of long documents.
 * Refine is good for research-style tasks where answers get better with context.
 * Map-Rerank is best for fact-based QnA (e.g., legal doc lookup, FAQ search).
+
+## 
+
+### **Loaders**
+It deals ith accessing and converting data
+* Data Access: Website, YouTube, DataBase,..
+* Data Types: Pdf, HTML, JSON, Word,..
+
