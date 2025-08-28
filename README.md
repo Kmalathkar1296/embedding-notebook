@@ -130,3 +130,24 @@ It deals ith accessing and converting data
 * Data Access: Website, YouTube, DataBase,..
 * Data Types: Pdf, HTML, JSON, Word,..
 
+
+## **Document Splitting** 
+
+Splitting the data into chuncks and retaining the meaningful relantionship.
+Example:
+langchain.text_splitter.CharacterTextSplitter(
+  chunk_size = n
+  chunk_overlap = m
+  seperator = ''
+  length_function = <built-in-function-length>
+)
+
+### **Types of Splitters**
+* RecursiveCharacterTextSplitter -> Recursively tries to split by different character to find one that works
+* CharacterTextSplitter -> splitting text that looks at characters
+* MarkdownHeadTextSplitter -> Splitting markdown files based on headers
+* TokenTextSplitter -> splitting text that looks at token
+* SentenceTransformerTokenTextSplitter
+* Language() -> for CCP, Python, markdown etc
+* SpacyTextSplitter -> splitting text that looks at sentence using spacy
+* NLTKTextSplitter
