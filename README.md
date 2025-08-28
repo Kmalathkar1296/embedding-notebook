@@ -134,7 +134,9 @@ It deals ith accessing and converting data
 ## **Document Splitting** 
 
 Splitting the data into chuncks and retaining the meaningful relantionship.
+
 Example:
+
 langchain.text_splitter.CharacterTextSplitter(
   chunk_size = n
   chunk_overlap = m
