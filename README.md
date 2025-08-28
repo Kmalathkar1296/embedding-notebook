@@ -138,10 +138,15 @@ Splitting the data into chuncks and retaining the meaningful relantionship.
 Example:
 
 langchain.text_splitter.CharacterTextSplitter(
-  chunk_size = n
-  chunk_overlap = m
-  seperator = ''
+
+  chunk_size = n,
+  
+  chunk_overlap = m,
+  
+  seperator = '',
+  
   length_function = <built-in-function-length>
+  
 )
 
 ### **Types of Splitters**
